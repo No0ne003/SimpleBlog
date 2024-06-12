@@ -34,7 +34,7 @@ export const MainNav: React.FC = () => {
     <nav className="flex items-center space-x-4 lg:space-x-6">
       <Link href="/" className="mr-6 flex items-center space-x-2">
         <Icons.logo className="h-6 w-6" />
-        <span className="font-bold">{siteConfig.name}</span>
+        <span className="font-bold font-mono tracking-wide">{siteConfig.name}</span>
       </Link>
       {navLinks.map((link) => (
         <NavLink key={link.href} href={link.href} label={link.label} />

@@ -29,7 +29,7 @@ export function MobileNav() {
           className="flex items-center"
         >
           <Icons.logo className="mr-2 size-5" />
-          <span className="font-bold">{siteConfig.name}</span>
+          <span className="font-bold font-mono tracking-wide">{siteConfig.name}</span>
         </MobileLink>
         <div className="flex flex-col gap-3 mt-3">
           {navLinks.map((link) => (
