@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
-import { Button } from "./ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
+import { Button } from "../ui/button";
 import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/navigation";
-import { Icons } from "./icons";
+import { Icons } from "../icons";
 import { siteConfig } from "@/config/site";
 import { navLinks } from "./Main-nav";
 import { socialLinks } from "./Header";
