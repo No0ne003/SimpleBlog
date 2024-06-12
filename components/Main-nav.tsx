@@ -6,7 +6,7 @@ import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 
-const navLinks = [
+export const navLinks = [
   { href: "/blog", label: "Blog" },
   { href: "/about", label: "About" },
 ];
@@ -20,7 +20,7 @@ const NavLink: React.FC<{ href: string; label: string }> = ({
     <Link
       href={href}
       className={cn(
-        "text-sm font-medium transition-colors hover:text-primary",
+        "text-sm font-medium transition-colors hover:text-primary hidden sm:inline-block",
         pathname === href ? "text-foreground" : "text-foreground/60",
       )}
     >
