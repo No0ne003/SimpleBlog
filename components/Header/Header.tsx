@@ -5,6 +5,7 @@ import { buttonVariants } from "../ui/button";
 import { Icons } from "../icons";
 import MainNav from "./Main-nav";
 import { MobileNav } from "./Mobile.nav";
+import ModeToggle from "../Mode-toggle";
 
 interface SocialLinkProps {
   href: string;
@@ -24,7 +25,12 @@ export const socialLinks: SocialLinkProps[] = [
 
 const SocialLink: React.FC<SocialLinkProps> = ({ href, label, Icon }) => (
   <Link href={href} target="_blank" rel="noreferrer">
-    <div className={cn(buttonVariants({ variant: "ghost" }), "w-10 px-0 hidden sm:inline-flex")}>
+    <div
+      className={cn(
+        buttonVariants({ variant: "ghost" }),
+        "w-10 px-0 hidden sm:inline-flex",
+      )}
+    >
       <Icon className="h-4 w-4" />
       <span className="sr-only">{label}</span>
     </div>
@@ -41,6 +47,7 @@ const Header: React.FC = () => {
             {socialLinks.map((link) => (
               <SocialLink key={link.href} {...link} />
             ))}
+            <ModeToggle />
             <MobileNav />
           </nav>
         </div>
