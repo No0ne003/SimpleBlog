@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-pt-[4rem]">
       <body
         className={cn(
           "mi-h-screen bg-background font-sans antialiased",
