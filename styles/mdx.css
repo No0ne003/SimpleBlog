@@ -6,11 +6,11 @@
   @apply text-sm !leading-loose md:text-base border-0 p-0;
 }
 
-[data-rehype-pretty-code-figure] code[data-line-numbers] {
+[data-rehype-pretty-code-figure] code {
   counter-reset: line;
 }
 
-[data-rehype-pretty-code-figure] code[data-line-numbers]>[data-line]::before {
+[data-rehype-pretty-code-figure] code>[data-line]::before {
   counter-increment: line;
   content: counter(line);
   @apply mr-4 inline-block w-4 text-right text-gray-500;
