@@ -18,7 +18,7 @@ export default function Home() {
             Welcome to my blog template. Build using tailwind, shadcn, velite
             and Nextjs 14
           </p>
-          <div className="flex flex-col gap4 justify-center sm:flex-row">
+          <div className="flex flex-col gap-4 justify-center sm:flex-row">
             <Link
               href="/blog"
               className={cn(buttonVariants({ size: "lg" }), "w-full sm:w-fit")}
