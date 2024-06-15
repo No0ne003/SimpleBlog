@@ -33,7 +33,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
       </div>
       <hr className="mt-8" />
       {displayPosts?.length > 0 ? (
-        <ul className="flex flex-col">
+        <ul className="flex flex-col gap-5">
           {displayPosts.map((post) => {
             const { slug, date, title, description } = post;
             return (
@@ -51,6 +51,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
       ) : (
         <p>Nothing to see here YET</p>
       )}
+
       <QueryPagination totalPages={totalPages} className="justify-end mt-8" />
     </div>
   );
