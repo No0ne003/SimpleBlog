@@ -2,9 +2,23 @@ import { posts } from "#site/content";
 import PostItem from "@/components/Post-item";
 import { sortPosts } from "@/lib/utils";
 
-export default async function BlogPage() {
+const POST_PER_PAGE = 5;
+
+interface BlogPageProps {
+  searchParams: {
+    page?: string;
+  };
+}
+
+export default async function BlogPage({ searchParams }: BlogPageProps) {
+  const currentPage = Number(searchParams?.page) || 1;
   const sortedPosts = sortPosts(posts.filter((post) => post.published));
-  const displayPosts = sortedPosts;
+  const totalPages = Math.ceil(sortedPosts.length / POST_PER_PAGE)
+
+  const displayPosts = sortedPosts.slice(
+    POST_PER_PAGE * (currentPage - 1),
+    POST_PER_PAGE * currentPage,
+  );
 
   return (
     <div className="container max-w-4xl py-6 lg:py-10">
