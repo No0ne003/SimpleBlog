@@ -3,6 +3,7 @@ import { MDXContent } from "@/components/mdx-components";
 import { notFound } from "next/navigation";
 
 import "@/styles/mdx.css"
+import { Metadata } from "next";
 interface PostPageProps {
   params: {
     slug: string[];
@@ -14,6 +15,12 @@ async function getPostFromParams(params: PostPageProps["parmas"]) {
   const post = posts.find((post) => post.slugAsParams === slug);
 
   return post;
+}
+
+export async function generateMetadata({
+  params
+}: PostPageProps): Promise<Metadata> {
+
 }
 
 export async function generateStaticParams(): Promise<
