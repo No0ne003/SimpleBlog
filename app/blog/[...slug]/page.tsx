@@ -2,8 +2,9 @@ import { posts } from "#site/content";
 import { MDXContent } from "@/components/mdx-components";
 import { notFound } from "next/navigation";
 
-import "@/styles/mdx.css"
+import "@/styles/mdx.css";
 import { Metadata } from "next";
+import { siteConfig } from "@/config/site";
 interface PostPageProps {
   params: {
     slug: string[];
@@ -18,9 +19,36 @@ async function getPostFromParams(params: PostPageProps["parmas"]) {
 }
 
 export async function generateMetadata({
-  params
+  params,
 }: PostPageProps): Promise<Metadata> {
+  const post = await getPostFromParams(params);
 
+  if (!post) {
+    return {};
+  }
+
+  const ogSearchParams = new URLSearchParams();
+  ogSearchParams.set("title", post.title);
+
+  return {
+    title: post.title,
+    description: post.description,
+    authors: { name: siteConfig.author },
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      type: "article",
+      url: post.slug,
+      images: [
+        {
+          url: `/api/og?${ogSearchParams.toString()}`,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
+  };
 }
 
 export async function generateStaticParams(): Promise<
