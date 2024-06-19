@@ -5,7 +5,7 @@ import { Icons } from "../icons";
 export function Footer() {
   const socialLinks = [
     {
-      href: "mailto:hi.yassir.op@gmail.com",
+      href: `mailto:${siteConfig.links.mail}`,
       label: "Mail",
       icon: <EnvelopeClosedIcon className="size-6" />,
     },
