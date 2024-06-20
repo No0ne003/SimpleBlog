@@ -1,6 +1,7 @@
 import { siteConfig } from "@/config/site";
 import { EnvelopeClosedIcon } from "@radix-ui/react-icons";
 import { Icons } from "../icons";
+import Link from "next/link";
 
 export function Footer() {
   const socialLinks = [
@@ -31,15 +32,16 @@ export function Footer() {
       <div className="mb-6 mt-14 flex flex-col items-center">
         <div className="mb-3 flex space-x-4">
           {socialLinks.map(({ href, label, icon }) => (
-            <a
+            <Link
               key={label}
               target="_blank"
               rel="noreferrer"
               href={href}
               aria-label={label}
+              className="transition-transform hover:scale-110"
             >
               {icon}
-            </a>
+            </Link>
           ))}
         </div>
         <div className="mb-2 flex space-x-2 text-sm text-muted-foreground">
