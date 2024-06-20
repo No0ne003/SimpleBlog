@@ -9,6 +9,7 @@ import {
   PaginationPrevious,
   PaginationNext,
 } from "./ui/pagination";
+import { cn } from "@/lib/utils";
 
 interface QueryPaginationProps {
   totalPages: number;
@@ -36,11 +37,14 @@ export function QueryPagination({
   return (
     <Pagination className={className}>
       <PaginationContent>
-        {prevPage >= 1 ? (
-          <PaginationItem>
-            <PaginationPrevious href={createPageURL(prevPage)} />
-          </PaginationItem>
-        ) : null}
+        <PaginationItem>
+          <PaginationPrevious
+            className={cn(
+              prevPage >= 1 ? null : "bg-muted text-muted-foreground",
+            )}
+            href={createPageURL(prevPage)}
+          />
+        </PaginationItem>
 
         {Array(totalPages)
           .fill("")
@@ -58,11 +62,14 @@ export function QueryPagination({
             </PaginationItem>
           ))}
 
-        {nextPage <= totalPages ? (
-          <PaginationItem>
-            <PaginationNext href={createPageURL(nextPage)} />
-          </PaginationItem>
-        ) : null}
+        <PaginationItem>
+          <PaginationNext
+            className={cn(
+              nextPage <= totalPages ? null : "bg-muted text-muted-foreground",
+            )}
+            href={createPageURL(nextPage)}
+          />
+        </PaginationItem>
       </PaginationContent>
     </Pagination>
   );
