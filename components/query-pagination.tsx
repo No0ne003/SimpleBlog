@@ -40,7 +40,7 @@ export function QueryPagination({
         <PaginationItem>
           <PaginationPrevious
             className={cn(
-              prevPage >= 1 ? null : "bg-muted text-muted-foreground",
+              prevPage >= 1 ? null : "text-muted-foreground",
             )}
             href={createPageURL(prevPage)}
           />
@@ -65,7 +65,7 @@ export function QueryPagination({
         <PaginationItem>
           <PaginationNext
             className={cn(
-              nextPage <= totalPages ? null : "bg-muted text-muted-foreground",
+              nextPage <= totalPages ? null : "text-muted-foreground",
             )}
             href={createPageURL(nextPage)}
           />
