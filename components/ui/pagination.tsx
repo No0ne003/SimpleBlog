@@ -56,7 +56,7 @@ const PaginationLink = ({
         variant: isActive ? "ghost" : "ghost",
         size,
       }),
-      isActive ? 'bg-primary/5' : null,
+      isActive ? "bg-accent text-accent-foreground" : null,
       className,
     )}
     {...props}
