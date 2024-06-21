@@ -3,6 +3,7 @@ import rehypeSlug from "rehype-slug";
 import { rehypePrettyCode } from "rehype-pretty-code";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import remarkHint from "remark-hint";
+import { Pluggable } from "unified";
 
 const computedFields = <T extends { slug: string }>(data: T) => ({
   ...data,
@@ -23,6 +24,8 @@ const posts = defineCollection({
     })
     .transform(computedFields),
 });
+
+const remarkPlugins: Pluggable[] = [remarkHint as Pluggable];
 
 export default defineConfig({
   root: "content",
@@ -49,6 +52,6 @@ export default defineConfig({
         },
       ],
     ],
-    remarkPlugins: [remarkHint],
+    remarkPlugins,
   },
 });
