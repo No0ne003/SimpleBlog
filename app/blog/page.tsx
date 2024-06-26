@@ -41,7 +41,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
       {displayPosts?.length > 0 ? (
         <ul className="flex flex-col gap-5">
           {displayPosts.map((post) => {
-            const { slug, date, title, description } = post;
+            const { slug, date, title, description, tags } = post;
             return (
               <li key={slug}>
                 <PostItem
@@ -49,6 +49,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                   title={title}
                   date={date}
                   description={description}
+                  tags={tags}
                 />
               </li>
             );
@@ -58,7 +59,10 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
         <p>Nothing to see here YET</p>
       )}
 
-      <QueryPagination totalPages={totalPages} className="justify-center mt-8" />
+      <QueryPagination
+        totalPages={totalPages}
+        className="justify-center mt-8"
+      />
     </div>
   );
 }
