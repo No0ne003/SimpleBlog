@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { slug } from "github-slugger";
+import { cn } from "@/lib/utils";
+import { badgeVariants } from "./ui/badge";
 
 interface TagProps {
   tag: string;
@@ -7,5 +9,15 @@ interface TagProps {
   count?: number;
 }
 export function Tag({ tag, current, count }: TagProps) {
-  return <Link href={`/tags/${slug(tag)}`}>{tag}</Link>;
+  return (
+    <Link
+      className={badgeVariants({
+        variant: current ? "default" : "secondary",
+        className: "no-underline rounded-md",
+      })}
+      href={`/tags/${slug(tag)}`}
+    >
+      {tag}
+    </Link>
+  );
 }
